@@ -9,18 +9,8 @@
 	<artifactId>CraftBukkit_v1_12_R1</artifactId>
 	<version>1.0</version>
 
-	<!-- <dependencies>
-		<dependency>
-		<groupId>remvn</groupId>
-		<artifactId>craftbukkit</artifactId>
-		<version>1.0</version>
-		<scope>system</scope>
-		<systemPath>${project.basedir}/src/main/resources/craftbukkit-1.12.2.jar</systemPath>
-		</dependency>
-		</dependencies> -->
-
 	<build>
-		<finalName>${project.artifactId}-${project.version}</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<!-- Resources -->
 		<resources>
 			<resource>
@@ -55,7 +45,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.2.0</version>
@@ -86,7 +76,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 		</plugins>
 		<pluginManagement>
 			<plugins>
