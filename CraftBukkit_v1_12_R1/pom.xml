@@ -9,50 +9,61 @@
 	<artifactId>CraftBukkit_v1_12_R1</artifactId>
 	<version>1.0</version>
 
-	<dependencies>
+	<!-- <dependencies>
 		<dependency>
-			<groupId>remvn</groupId>
-			<artifactId>craftbukkit</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/craftbukkit-1.12.2.jar</systemPath>
+		<groupId>remvn</groupId>
+		<artifactId>craftbukkit</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/src/main/resources/craftbukkit-1.12.2.jar</systemPath>
 		</dependency>
-	</dependencies>
+		</dependencies> -->
 
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<!-- Resources -->
 		<resources>
-
 			<resource>
 				<directory>src/main/resources</directory>
-			</resource>
-
-			<!-- plugin.yml -->
-			<resource>
-				<directory>${project.basedir}</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>*.yml</include>
-				</includes>
-			</resource>
-
-			<!-- OpenSource -->
-			<resource>
-				<directory>${project.build.sourceDirectory}</directory>
-				<!-- Enable filtering to open source -->
-				<filtering>true</filtering>
+				<excludes>
+					<exclude>*.jar</exclude>
+				</excludes>
+				<filtering>false</filtering>
 			</resource>
 		</resources>
 
 		<plugins>
 			<plugin>
+				<groupId>com.googlecode.addjars-maven-plugin</groupId>
+				<artifactId>addjars-maven-plugin</artifactId>
+				<version>1.0.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-jars</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${project.basedir}</directory>
+									<includes>
+										<include>**/craftbukkit-1.12.2.jar</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.2.0</version>
-<!-- 				<configuration>
-					<outputDirectory>C:/Users/Remre/Desktop/SERVER TEST/1.14.4/plugins</outputDirectory>
-				</configuration> -->
+				<configuration>
+					<excludes>
+						<exclude>**/*.jar</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -77,5 +88,34 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.googlecode.addjars-maven-plugin</groupId>
+										<artifactId>addjars-maven-plugin</artifactId>
+										<versionRange>[1.0.5,)</versionRange>
+										<goals>
+											<goal>add-jars</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 </project>
