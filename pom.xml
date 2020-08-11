@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>remvn</groupId>
+	<groupId>remvn.craftbukkit</groupId>
 	<artifactId>CraftBukkit</artifactId>
 	<version>parent</version>
 	<name>CraftBukkit</name>
@@ -10,17 +10,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<repositories>
-<!-- 		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-		</repository> -->
-	</repositories>
-
 	<modules>
-	<module>CraftBukkit_v1_12_R1</module>
-	<module>CraftBukkit_v1_14_R1</module>
+		<module>CraftBukkit_v1_12_R1</module>
+		<module>CraftBukkit_v1_14_R1</module>
 	</modules>
 </project>
