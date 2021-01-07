@@ -17,5 +17,6 @@
 	<modules>
 		<module>CraftBukkit_v1_12_R1</module>
 		<module>CraftBukkit_v1_14_R1</module>
+		<module>CraftBukkit_v1_16_R3</module>
 	</modules>
 </project>
